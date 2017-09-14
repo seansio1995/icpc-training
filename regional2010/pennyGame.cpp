@@ -20,7 +20,17 @@ int main()
 
     }
     for (int k=0;k<38;k++){
-      
+      penny=(str[k]=='H'?4:0)+
+      (str[k+1]=='H'?2:0)+
+      (str[k+2]=='H'?1:0);
+    result[penny]+=1;
     }
+
+    cout<<index;
+    for (int i=0;i<8;i++){
+      cout<<" "<<result[i];
+    }
+    cout<<endl;
   }
+  return 0;
 }
