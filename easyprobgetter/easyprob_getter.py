@@ -5,7 +5,7 @@ import time
 def getEasyProblems(ace_rate):
     easy_prob=[]
     easy_prob_rate=[]
-    for index in range(3,10):
+    for index in range(3,750):
         if index<10:
             index="00"+str(index)
         elif index<100:
@@ -43,7 +43,7 @@ def getEasyProblems(ace_rate):
             for title, rate in zip(clean_titles,clean_solve_rate):
                 rate_id[title]=rate
             for title in rate_id:
-                if rate_id[title]>ace_rate:
+                if rate_id[title]>float(ace_rate):
                     easy_prob.append(title)
                     easy_prob_rate.append(rate_id[title])
             print(easy_prob)
