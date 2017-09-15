@@ -3,6 +3,7 @@ from lxml import html
 import requests
 import time
 def getEasyProblems(ace_rate):
+    output=open("icpc-easy-prob.txt","a+")
     easy_prob=[]
     easy_prob_rate=[]
     for index in range(3,750):
@@ -46,12 +47,13 @@ def getEasyProblems(ace_rate):
                 if rate_id[title]>float(ace_rate):
                     easy_prob.append(title)
                     easy_prob_rate.append(rate_id[title])
+                    output.write("{}    {}\n".format(title,rate_id[title]))
             print(easy_prob)
         except requests.exceptions.RequestException as e:
             print(e)
-    output=open("icpc-easy-prob.txt","w")
-    for title, rate in zip(easy_prob,easy_prob_rate):
-        output.write("{}    {}".format(title,rate))
+    output.close()
+    # for title, rate in zip(easy_prob,easy_prob_rate):
+    #     output.write("{}    {}".format(title,rate))
 
 
 if __name__=="__main__":
